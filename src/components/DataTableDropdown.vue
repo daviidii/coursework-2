@@ -10,9 +10,11 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { MoreHorizontal } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
+import { useToast } from './ui/toast'
+import axios from 'axios'
 
+const { toast } = useToast()
 const router = useRouter()
-
 defineProps<{
   userId: number
 }>()
@@ -23,6 +25,26 @@ const copy = (id: string) => {
 
 const goToUserUpdate = (id: string) => {
   router.push(`/user/update/${id}`)
+}
+
+const removeUser = async (id: string) => {
+  try {
+    await axios.delete(`https://fakestoreapi.com/users/${id}`)
+
+    toast({
+      title: 'User deleted',
+      description: `User ${id} has been deleted`,
+      class: 'bg-green-500',
+      duration: 3000,
+    })
+  } catch (error) {
+    toast({
+      title: 'Error deleting',
+      description: `Item ${id} can't be deleted`,
+      variant: 'destructive',
+      duration: 3000,
+    })
+  }
 }
 </script>
 
@@ -39,7 +61,7 @@ const goToUserUpdate = (id: string) => {
       <DropdownMenuItem @click="copy(userId.toString())"> Copy user ID </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem @click="goToUserUpdate(userId.toString())">Update User</DropdownMenuItem>
-      <DropdownMenuItem>Delete User</DropdownMenuItem>
+      <DropdownMenuItem @click="removeUser(userId.toString())">Delete User</DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
 </template>

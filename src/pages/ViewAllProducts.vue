@@ -31,6 +31,12 @@ const removeProduct = async (productId: number) => {
     })
   } catch (error) {
     console.error('error deleting product', error)
+    toast({
+      title: 'Error deleting',
+      description: `Item ${productId} can't be deleted`,
+      variant: 'destructive',
+      duration: 3000,
+    })
   } finally {
     state.isDeleting = false
   }
