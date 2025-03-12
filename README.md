@@ -1,33 +1,26 @@
-# .
+# Bug Report
 
-This template should help get you started developing with Vue 3 in Vite.
+## Project Name
 
-## Recommended IDE Setup
+API integration - E-commerce dashboard
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Bug
 
-## Type Support for `.vue` Imports in TS
+**Title:**
+Bug on reusable form field component.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+**Description:**
+Yung form fields specifically, FormField.vue and FormTextArea.vue has a bug or something that requires a double tap of the key to recognize the input.
 
-## Customize configuration
+If the Form has a default value for example in editing mode. The initial value is not shown immediately, in order to show the default value, you need to type something on the field.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+**Steps to Reproduce:**
 
-## Project Setup
+1. Go to either the /product/add or /user/add or select a user or product to update in the view-all page (/products/view-all & /users/view-all).
+2. Try to make an input on the form field.
 
-```sh
-npm install
-```
+**Expected Behavior:**
+Immediately recognize and display the input.
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+**Actual Behavior:**
+Does not recognize the first input but rather need to double tap a key.
