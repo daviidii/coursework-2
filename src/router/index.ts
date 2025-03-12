@@ -1,6 +1,6 @@
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import AddProduct from '@/pages/ManageProduct.vue'
-import AddUser from '@/pages/AddUser.vue'
+import AddUser from '@/pages/ManageUser.vue'
 import Home from '@/pages/Home.vue'
 import ViewAllProducts from '@/pages/ViewAllProducts.vue'
 import ViewAllUsers from '@/pages/ViewAllUsers.vue'

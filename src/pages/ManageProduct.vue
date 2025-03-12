@@ -15,7 +15,6 @@ const mode = route.params.mode
 const productId = route.params.productId
 
 const isEditing = mode === 'update' && productId
-// Sample product data (for edit mode)
 const product = ref<ProductItemProps | undefined>(undefined)
 
 const loading = ref(false)

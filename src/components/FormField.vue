@@ -56,10 +56,6 @@ const errorMessage = computed(() => {
 
   const value = String(props.modelValue)
 
-  if (props.validation.required && !value) {
-    return `${props.label} is required`
-  }
-
   if (props.validation.minLength && value.length < props.validation.minLength) {
     return `${props.label} must be at least ${props.validation.minLength} characters`
   }
